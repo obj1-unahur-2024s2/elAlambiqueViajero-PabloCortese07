@@ -1,52 +1,42 @@
+import veiculos.*
+
 object luke {
-  var recuerdo = ""
-  var veiculo = superChatarraEspecial
+  const property ciudadesVicitados = []
+  var recuerdo = ciudadesVicitados.last().recuerdoAca()
+  var property veiculo = superChatarraEspecial 
+  method cantidadDeCiudadesVicitadados() = ciudadesVicitados.size()
 
-  method queRecuerdoTiene() = recuerdo
-
-  method puedeViajarA(ciudad) {
-    
+  method vicitarCiudades(unaCiudad) {
+    if(unaCiudad.puedeSerVicitada(veiculo)){
+      ciudadesVicitados.add(unaCiudad)
+    }
   }
+
 }
 
 object paris {
-  var distancia = ""
-
-  method distaancia() = distancia
   method recuerdoAca() = "llavero torre eiffel"
+  method puedeSerVicitada(veiculo) {
+    return veiculo.conbustible() > 50
+  }
 }
 
 object buenosAires {
-  var distancia = ""
-  var presidente = "Milei"
+  var property presidente = "Ricardo Fort"
+  method recuerdoAca() = if (presidente == "Ricardo Fort") "mate con yerba" else "mate sin yerba"
 
-  method distaancia() = distancia
-  method recuerdoAca() = if (presidente == "Milei") "mate sin yerba" else "mate con yerba"
+  method puedeSerVicitada(veiculo) {
+    return veiculo.esRapido()
+  }
+}
+object bagdad {
+  var property recuerdo = "barril de petroleo"
+  method recuerdoAca() = recuerdo
 }
 
 object lasVegas {
-  var recuerdo = ""
-  var distancia = ""
 
-  method distancia() = distancia
-  method recuerdoAca() = recuerdo
-}
-
-object bagdad {
-  var recuerdo = ""
-  var distancia = ""
-
-  method distaancia() = distancia
-  method recuerdoAca() = recuerdo
-}
-object superChatarraEspecial {
   
+ 
 }
 
-object laAntiguallaBlindada {
-  
-}
-
-object elSuperConvertible {
-  
-}
